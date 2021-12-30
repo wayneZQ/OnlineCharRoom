@@ -2,8 +2,6 @@ package com.polyu.zwq.Client;
 
 import com.polyu.zwq.Common.MessageDecoder;
 import com.polyu.zwq.Common.MessageEncoder;
-import com.polyu.zwq.Server.ServerHandler;
-import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
@@ -18,7 +16,7 @@ public class ClientChannelInitializer extends ChannelInitializer<SocketChannel> 
         //encoder
         pipeline.addLast("encoder",new MessageEncoder());
         //BusinessHandler
-        pipeline.addLast(new ServerHandler());
+        pipeline.addLast(new ClientHandler());
 
     }
 }
